@@ -26,7 +26,7 @@ app.use(
 app.use(bodyParser.json());
 
 //configure static files serving
-app.use("/static/avatars", express.static(path.join(__dirname, "../public")));
+app.use("/static", express.static(path.join(__dirname, "../public/storage/avatars")));
 
 //use routes
 app.use("/users", usersRoutes);
