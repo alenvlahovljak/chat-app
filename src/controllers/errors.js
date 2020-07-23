@@ -8,7 +8,6 @@ const errorHandler = (err, req, res, next) => {
 
 //define database error handler
 const databaseErrorHandler = ({ errors }) => {
-	console.log("ASDSADa", errors);
 	try {
 		const keys = Object.keys(errors);
 		const values = Object.values(errors);
@@ -24,7 +23,6 @@ const databaseErrorHandler = ({ errors }) => {
 
 //define upload error handler
 const uploadErrorHandler = (err, req, res, next) => {
-	console.log("HELLO", err);
 	if (err.code === "LIMIT_FILE_SIZE") {
 		return res.status(413).json({
 			status: 413,
