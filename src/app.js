@@ -10,7 +10,11 @@ const app = express();
 //require error handler
 const { errorHandler } = require("./controllers/errors");
 
+//require routes
+const { usersRoutes } = require("./routes");
+
 //require database
+const db = require("./models");
 
 //configure modules usage
 app.use(cors());
@@ -25,10 +29,11 @@ app.use(bodyParser.json());
 app.use("/static/avatars", express.static(path.join(__dirname, "../public")));
 
 //use routes
+app.use("/users", usersRoutes);
 
-//catch and forward to error handler
+//catch 404 and forward to error handler
 app.use((req, res, next) => {
-	let err = new Error("Page Not Found");
+	let err = new Error("Page Not Found!");
 	err.status = 404;
 	next(err);
 });
