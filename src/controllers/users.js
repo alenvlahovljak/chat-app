@@ -1,7 +1,6 @@
 //require necessary module
 const path = require("path");
 const fs = require("fs");
-const rug = require("random-username-generator");
 
 //require db
 const db = require("../models");
@@ -13,10 +12,8 @@ const { databaseErrorHandler } = require("../controllers/errors");
 const createUser = async (req, res, next) => {
 	try {
 		const { location } = req.body;
-		const username = rug.generate();
-		console.log(location, username);
 		const user = await db.User.create({
-			username: "asadasd",
+			username: "User",
 			location
 		});
 		return res.status(201).json(user);

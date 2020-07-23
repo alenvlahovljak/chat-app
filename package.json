@@ -16,12 +16,17 @@
 		"express": "^4.17.1",
 		"mongoose": "^5.9.25",
 		"multer": "^1.4.2",
-		"random-username-generator": "^1.0.4",
 		"sharp": "^0.25.4"
 	},
 	"devDependencies": {
 		"env-cmd": "^10.1.0",
 		"jest": "^26.1.0",
 		"supertest": "^4.0.2"
+	},
+	"jest": {
+		"testEnvironment": "node"
+	},
+	"engines": {
+		"node": "10.x"
 	}
 }
