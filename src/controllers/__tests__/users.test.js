@@ -5,7 +5,10 @@ const app = require("../../app");
 const request = require("supertest");
 
 //reqire models and db's populate method
-const { populateDB } = require("../../fixtures/db/users");
+const {
+	users: { userOne },
+	populateDB
+} = require("../../fixtures/db/users");
 
 //require necessary model
 const User = require("../../models/User");
@@ -27,10 +30,19 @@ afterAll(() => {
 });
 
 test("Should create new user", async () => {
-	await request(app)
+	const res = await request(app)
 		.post("/users")
 		.send({
 			location: "Moscow"
 		})
 		.expect(201);
+});
+
+test("Should upload user's avatar image", async () => {
+	await request(app).post(`/users/${userOne._id}/avatar`).attach("avatar", "./src/fixtures/avatar.jpg").expect(200);
+	const user = await User.findById(userOne._id);
+	expect(user.avatar).toMatchObject({
+		filename: expect.any(String),
+		path: expect.any(String)
+	});
 });

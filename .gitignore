@@ -1,3 +1,4 @@
 node_modules
 config/*
-public/storage/*
+public/storage/avatars
+coverage

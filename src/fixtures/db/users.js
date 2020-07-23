@@ -8,25 +8,26 @@ const db = require("../../models");
 const userOneId = new mongoose.Types.ObjectId();
 const userTwoId = new mongoose.Types.ObjectId();
 const userThreeId = new mongoose.Types.ObjectId();
+console.log("HELlo", userOneId);
 
 //define user's model No. 1
 const userOne = {
 	_id: userOneId,
-	username: `Test_${userOneId}`,
+	username: `Test`,
 	location: "London"
 };
 
 //define user's model No. 2
 const userTwo = {
-	_id: new mongoose.Types.ObjectId(),
-	username: `Test_${userTwoId}`,
+	_id: userTwoId,
+	username: `Test`,
 	location: "Paris"
 };
 
 //define user's model No.3
 const userThree = {
-	_id: new mongoose.Types.ObjectId(),
-	username: `Test_${userThreeId}`,
+	_id: userThreeId,
+	username: `Test`,
 	location: "Stockholm"
 };
 
